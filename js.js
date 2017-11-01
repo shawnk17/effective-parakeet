@@ -7,10 +7,12 @@ var playerName = document.getElementById("player-name"),
     score =document.getElementById("score"),
     select = document.getElementById("select"),
     selectOp = document.getElementById("select-op"),
+    checkAnswer=document.getElementById("check-answer"),
     num1 = 0,
     num2 = 0,
     oper = "",
-    answer = 0;
+    answer = 0,
+    scoreTotal = 0;
 
     function creatQuestion(range){
         var question ="";
@@ -36,6 +38,17 @@ btnQuestion.addEventListener("click", function(){
 
 btnSubmit.addEventListener("click", function(){
     getAnswer(num1, num2, oper);
+    if (answer == inputAnswer.value){
+    checkAnswer.innerHTML = "<strong>Correct, " + playerName.value + "!</strong>";
+    scoreTotal++;
+    score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
+
+    } else
+    {
+        checkAnswer.innerHTML = "<strong>Oops!  That is incorrect, " + playerName.value + ".  The correct answer is: " + answer + "</strong>"
+        scoreTotal--;
+        score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
+    }
 });
 
 function getAnswer(num1, num2, oper){
@@ -48,7 +61,7 @@ function getAnswer(num1, num2, oper){
             break;
         case "/": answer = num1 / num2;
     }
-    score.innerText = answer;
+
 }
 
 function getRandomNumber(min, max){
