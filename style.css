@@ -2,19 +2,17 @@
 body {
     background-color: lightgoldenrodyellow;
     font-family: 'Hind', sans-serif;
-}
-
-.form-element {
     margin-bottom: 1rem;
+    padding: 12px;
 }
 
-h1 {
+h1,h2,h3 {
     color: rgb(26, 24, 24);
     text-align: center;
 }
 
 p,div {
-   
+
     font-size: 30px;
     padding: 12px 12px 12px 12px;  
     margin: 12px 12px 12px 12px;  

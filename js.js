@@ -87,5 +87,6 @@ resetButton.addEventListener("click", function(){
     score.innerHTML = "";
     checkAnswer.innerHTML = "";
     answer = "";
+    scoreTotal = 0;
 
 });
