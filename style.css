@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Hind');
 body {
     background-color: lightgoldenrodyellow;
-    font-family: 'Hind', sans-serif, cursive;
+    font-family: 'Hind', sans-serif;
 }
 
+.form-element {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    color: rgb(26, 24, 24);
+    text-align: center;
+}
+
+p,div {
+   
+    font-size: 30px;
+    padding: 12px 12px 12px 12px;  
+    margin: 12px 12px 12px 12px;  
+}
