@@ -5,11 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>changle 2</title>
+    <title>Changle 2 Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>  
+    <h1>Match Game</h1>
+    <label id="player">Player name</label>
+    <input id="player-name" type="text">
+    <br>
+    <label id="chose-range">Select Range</label>
+    <select id="select">
+        <option value="1">0-10</option>
+        <option value="2">0-100</option>
+    </select>
+    <br>
+    <label id="select-oper">Select Operation</label>
+    <select id="select-op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
 
+    </select>
+
+    <button id="btn-question">Ask Question</button>
+    <div id="current-question"></div>
+
+    <input id="input-answer">
+    <button id="submit-answer">Submit</button>
+    <output id="score"></output>
+    
     <script src="js.js"></script>
 </body>
 </html>
