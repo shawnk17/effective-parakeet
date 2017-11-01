@@ -16,13 +16,13 @@ var playerName = document.getElementById("player-name"),
         var question ="";
 
         if(range == 1) { 
-        num1 = parseInt(getRandomNumber(0, 10));
-        num2 = parseInt(getRandomNumber(0, 10));
+        num1 = parseInt(getRandomNumber(1, 10));
+        num2 = parseInt(getRandomNumber(1, 10));
         oper = selectOp.value;
         question += num1 + " " + oper + " " + num2;
        } else {
-        num1 = parseInt(getRandomNumber(0, 100));
-        num2 = parseInt(getRandomNumber(0, 100));
+        num1 = parseInt(getRandomNumber(1, 100));
+        num2 = parseInt(getRandomNumber(1, 100));
         oper = selectOp.value;
         question += num1 + " " + oper + " " + num2;
        }
