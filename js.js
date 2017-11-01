@@ -8,10 +8,11 @@ var playerName = document.getElementById("player-name"),
     select = document.getElementById("select"),
     selectOp = document.getElementById("select-op"),
     checkAnswer=document.getElementById("check-answer"),
+    resetButton=document.getElementById("reset-game"),
     num1 = 0,
     num2 = 0,
     oper = "",
-    answer = 0,
+    answer = "",
     scoreTotal = 0;
 
     function creatQuestion(range){
@@ -37,6 +38,11 @@ btnQuestion.addEventListener("click", function(){
 });
 
 btnSubmit.addEventListener("click", function(){
+
+    if (currentQuestion.innerHTML == ""){
+        alert("Get a question before answering.");
+    } else
+    {
     getAnswer(num1, num2, oper);
     if (answer == inputAnswer.value){
     checkAnswer.innerHTML = "<strong>Correct, " + playerName.value + "!</strong>";
@@ -49,6 +55,9 @@ btnSubmit.addEventListener("click", function(){
         scoreTotal--;
         score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
     }
+   
+}
+
 });
 
 function getAnswer(num1, num2, oper){
@@ -69,6 +78,14 @@ min = Math.ceil(min);
 max = Math.floor(max);
 var number = Math.random();
 return Math.floor(number * (max - min + 1) + min);
-};
+}
 
-console.log(select.value);
+resetButton.addEventListener("click", function(){
+    playerName.value = "";
+    currentQuestion.innerHTML = "";
+    inputAnswer.value = "";
+    score.innerHTML = "";
+    checkAnswer.innerHTML = "";
+    answer = "";
+
+});
