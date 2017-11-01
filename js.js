@@ -8,26 +8,48 @@ var playerName = document.getElementById("player-name"),
     select = document.getElementById("select"),
     selectOp = document.getElementById("select-op"),
     num1 = 0,
-    num2 = 0;
+    num2 = 0,
+    oper = "",
+    answer = 0;
 
     function creatQuestion(range){
         var question ="";
 
         if(range == 1) { 
-        num1 = getRandomNumber(0, 10);
-        num2 = getRandomNumber(0, 10);
-        question += num1 + " " + selectOp.value + " " + num2 + " =";
+        num1 = parseInt(getRandomNumber(0, 10));
+        num2 = parseInt(getRandomNumber(0, 10));
+        oper = selectOp.value;
+        question += num1 + " " + oper + " " + num2;
        } else {
-        num1 = getRandomNumber(0, 100);
-        num2 = getRandomNumber(0, 100);
-        question += num1 + " " + selectOp.value + " " + num2 + " =";
+        num1 = parseInt(getRandomNumber(0, 100));
+        num2 = parseInt(getRandomNumber(0, 100));
+        oper = selectOp.value;
+        question += num1 + " " + oper + " " + num2;
        }
        return question;
     }
 
 btnQuestion.addEventListener("click", function(){
-  curr.innerHTML = creatQuestion(select.value);
+    var question = creatQuestion(select.value);
+    currentQuestion.innerHTML = question + " =";
 });
+
+btnSubmit.addEventListener("click", function(){
+    getAnswer(num1, num2, oper);
+});
+
+function getAnswer(num1, num2, oper){
+    switch (oper) {
+        case "+": answer = num1 + num2;
+            break;
+        case "-": answer = num1 - num2;
+            break;
+        case "*": answer = num1 * num2;
+            break;
+        case "/": answer = num1 / num2;
+    }
+    score.innerText = answer;
+}
 
 function getRandomNumber(min, max){
 min = Math.ceil(min);
