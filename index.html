@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Changle2 Game</title>
+    <title>Math Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>  
@@ -15,8 +15,8 @@
     <br>
     <label id="chose-range">Select Range</label>
     <select id="select">
-        <option value="1">0-10</option>
-        <option value="2">0-100</option>
+        <option value="1">1-10</option>
+        <option value="2">1-100</option>
     </select>
     <br>
     <label id="select-oper">Select Operation</label>
@@ -27,13 +27,16 @@
             <option value="/">/</option>
 
     </select>
-
+    <br>
     <button id="btn-question">Ask Question</button>
     <div id="current-question"></div>
 
-    <input id="input-answer"> 
-    <button id="submit-answer">Submit</button>
+    <input id="input-answer">
+    <button id="submit-answer">Submit Answer</button>
+    <button id="reset-game">Start Over</button>
+    <div id="check-answer"></div>
     <output id="score"></output>
+    
     
     <script src="js.js"></script>
 </body>

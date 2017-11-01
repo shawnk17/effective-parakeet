@@ -7,22 +7,25 @@ var playerName = document.getElementById("player-name"),
     score =document.getElementById("score"),
     select = document.getElementById("select"),
     selectOp = document.getElementById("select-op"),
+    checkAnswer=document.getElementById("check-answer"),
+    resetButton=document.getElementById("reset-game"),
     num1 = 0,
     num2 = 0,
     oper = "",
-    answer = 0;
+    answer = "",
+    scoreTotal = 0;
 
     function creatQuestion(range){
         var question ="";
 
         if(range == 1) { 
-        num1 = parseInt(getRandomNumber(0, 10));
-        num2 = parseInt(getRandomNumber(0, 10));
+        num1 = parseInt(getRandomNumber(1, 10));
+        num2 = parseInt(getRandomNumber(1, 10));
         oper = selectOp.value;
         question += num1 + " " + oper + " " + num2;
        } else {
-        num1 = parseInt(getRandomNumber(0, 100));
-        num2 = parseInt(getRandomNumber(0, 100));
+        num1 = parseInt(getRandomNumber(1, 100));
+        num2 = parseInt(getRandomNumber(1, 100));
         oper = selectOp.value;
         question += num1 + " " + oper + " " + num2;
        }
@@ -35,7 +38,26 @@ btnQuestion.addEventListener("click", function(){
 });
 
 btnSubmit.addEventListener("click", function(){
+
+    if (currentQuestion.innerHTML == ""){
+        alert("Get a question before answering.");
+    } else
+    {
     getAnswer(num1, num2, oper);
+    if (answer == inputAnswer.value){
+    checkAnswer.innerHTML = "<strong>Correct, " + playerName.value + "!</strong>";
+    scoreTotal++;
+    score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
+
+    } else
+    {
+        checkAnswer.innerHTML = "<strong>Oops!  That is incorrect, " + playerName.value + ".  The correct answer is: " + answer + "</strong>"
+        scoreTotal--;
+        score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
+    }
+   
+}
+
 });
 
 function getAnswer(num1, num2, oper){
@@ -48,7 +70,7 @@ function getAnswer(num1, num2, oper){
             break;
         case "/": answer = num1 / num2;
     }
-    score.innerText = answer;
+
 }
 
 function getRandomNumber(min, max){
@@ -56,6 +78,14 @@ min = Math.ceil(min);
 max = Math.floor(max);
 var number = Math.random();
 return Math.floor(number * (max - min + 1) + min);
-};
+}
 
-console.log(select.value);
+resetButton.addEventListener("click", function(){
+    playerName.value = "";
+    currentQuestion.innerHTML = "";
+    inputAnswer.value = "";
+    score.innerHTML = "";
+    checkAnswer.innerHTML = "";
+    answer = "";
+
+});
