@@ -55,16 +55,16 @@ btnSubmit.addEventListener("click", function(){
 
     if (currentQuestion.innerHTML == ""){
         alert("Get a question before answering.");
-    } else
-    {
-    getAnswer(num1, num2, oper);
-    if (answer == inputAnswer.value){
-    checkAnswer.innerHTML = "<strong>Correct, " + playerName.value + "!</strong>";
-    scoreTotal++;
-    score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
+    } else{
+    
+         getAnswer(num1, num2, oper);
+         if (answer == inputAnswer.value){
+        checkAnswer.innerHTML = "<strong>Correct, " + playerName.value + "!</strong>";
+        scoreTotal++;
+        score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
 
-    } else
-    {
+    } else{
+   
         checkAnswer.innerHTML = "<strong>Oops!  That is incorrect, " + playerName.value + ".  The correct answer is: " + answer + "</strong>"
         scoreTotal--;
         score.innerHTML = playerName.value + "'s Total Score: " + scoreTotal;
@@ -88,10 +88,10 @@ function getAnswer(num1, num2, oper){
 }
 
 function getRandomNumber(min, max){
-min = Math.ceil(min);
-max = Math.floor(max);
-var number = Math.random();
-return Math.floor(number * (max - min + 1) + min);
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    var number = Math.random();
+    return Math.floor(number * (max - min + 1) + min);
 }
 
 resetButton.addEventListener("click", function(){
