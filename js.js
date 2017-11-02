@@ -9,11 +9,24 @@ var playerName = document.getElementById("player-name"),
     selectOp = document.getElementById("select-op"),
     checkAnswer=document.getElementById("check-answer"),
     resetButton=document.getElementById("reset-game"),
+    btnStartGame = document.getElementById("start-game"),
+    screenStart = document.querySelector(".start-screen"),
+    screenGame = document.querySelector(".game-board-off"),
+    pnlQuestion = document.getElementById("question-panel"),
     num1 = 0,
     num2 = 0,
     oper = "",
     answer = "",
     scoreTotal = 0;
+
+    btnStartGame.addEventListener("click", function(){
+        if(playerName.value != ""){
+            screenStart.className = "displayOff";
+            screenGame.className = "game-board";
+        } else {
+            alert("Enter Player Name to Start");
+        }
+    });
 
     function creatQuestion(range){
         var question ="";
@@ -35,6 +48,7 @@ var playerName = document.getElementById("player-name"),
 btnQuestion.addEventListener("click", function(){
     var question = creatQuestion(select.value);
     currentQuestion.innerHTML = question + " =";
+    pnlQuestion.className = "question-panel displayOn";
 });
 
 btnSubmit.addEventListener("click", function(){
@@ -88,5 +102,7 @@ resetButton.addEventListener("click", function(){
     checkAnswer.innerHTML = "";
     answer = "";
     scoreTotal = 0;
-
+    screenStart.className = "start-screen";
+    screenGame.className = "game-board-off";
+    pnlQuestion.className = "displayOff";
 });

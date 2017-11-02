@@ -1,19 +1,185 @@
 @import url('https://fonts.googleapis.com/css?family=Hind');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url(https://fonts.googleapis.com/css?family=Lato:700,900);
+
 body {
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(76, 120, 178);
     font-family: 'Hind', sans-serif;
     margin-bottom: 1rem;
     padding: 12px;
 }
 
-h1,h2,h3 {
-    color: rgb(26, 24, 24);
+h1 {
+  color: white;
+  font-family: 'Righteous', serif;
+  font-size: 10em; 
+  text-align: center;
+  text-shadow: .03em .03em 0 rgb(76, 120, 178);
+  width: 60rem;
+  margin: 1rem auto;
+  position: relative;
+}
+
+h1:after {
+    content: attr(data-shadow);
+    position: absolute;
+    top: .06em;
+    left: .43em;
+    z-index: -1;
+    text-shadow: none;
+    background-image:
+      linear-gradient(
+        45deg,
+        transparent 45%,
+        hsla(48,20%,90%,1) 45%,
+        hsla(48,20%,90%,1) 55%,
+        transparent 0
+        );
+    background-size: .05em .05em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shad-anim 15s linear infinite;
+}
+
+@keyframes shad-anim {
+  0% {background-position: 0 0}
+  0% {background-position: 100% -100%}
+}
+
+.start-screen {
+    width: 60rem;
+    margin: 1rem auto;
     text-align: center;
 }
 
-p,div {
-
-    font-size: 30px;
-    padding: 12px 12px 12px 12px;  
-    margin: 12px 12px 12px 12px;  
+.start-screen label {
+    display: block;
+    font-family: 'Righteous', sans-serif;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 2px 2px #0a3c59;
 }
+
+.start-screen input {
+    border-radius: 5px;
+    display: block;
+    padding: .5rem 1rem;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    margin: 1.5rem auto;
+    font-size: 1.5rem;
+    border: 2px solid #0a3c59;
+}
+
+.start-screen button {
+    border: 2px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 11.5px 23px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #01233a;
+    font-size: 1.35rem;
+    font-family: 'Lato', Helvetica, serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.start-screen button:hover {
+    border: 2px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff;
+}
+
+.start-screen button:active {
+    text-shadow: #1e4158 0 1px 0;
+    border: 2px solid #0a3c59;
+    background: #65a9d7;
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff;
+}
+
+.game-board {
+    width: 60rem;
+    margin: 1rem auto;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    /* border: 2px solid #0a3c59; */
+}
+
+.game-board label {
+    color: #fff;
+    font-family: 'Righteous', sans-serif;
+    padding: 0 .5rem 0 0;
+    text-shadow: 2px 2px #0a3c59;
+    background-color: 
+}
+
+.game-board label.lbl-params {
+    position: relative;
+    top: 1.3rem;
+    left: 1.5rem;
+    padding: 0 .8rem;
+    color: #0a3c59;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    text-shadow: none;
+    background-color: rgb(76, 120, 178)
+}
+
+.game-board input, .game-board button, .game-board select {
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+    border-radius: 1rem;
+    border-style: solid;
+    border-color: #0a3c59;
+}
+
+.game-board .params {
+    display: flex;
+    justify-content: space-between;
+    border: 2px dashed #fff;
+    padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.param {
+    /* border: 1px solid red; */
+    border-radius: 1rem;
+}
+
+.game-board-off {
+    display: none;
+}
+
+.question-panel {
+    text-align: center;
+}
+
+.question {
+    padding: 2rem 1rem 1rem 1rem;
+    font-family: 'Righteous', sans-serif;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 2px 2px #0a3c59;
+}
+
+output, .output {
+    padding: 2rem 1rem 1rem 1rem;
+    font-family: 'Hind', Arial, Helvetica, sans-serif;
+    font-size: 1.75rem;
+    color: #fff;
+}
+
+.displayOff {display: none;}
+.displayOn {display: block;}

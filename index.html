@@ -9,35 +9,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>  
-    <h1>Math Game</h1>
-    <label id="player">Player name</label>
-    <input id="player-name" type="text">
-    <br>
-    <label id="chose-range">Select Range</label>
-    <select id="select">
-        <option value="1">1-10</option>
-        <option value="2">1-100</option>
-    </select>
-    <br>
-    <label id="select-oper">Select Operation</label>
-    <select id="select-op">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-
-    </select>
-    <br>
-    <button id="btn-question">Ask Question</button>
-    <div id="current-question"></div>
-
-    <input id="input-answer">
-    <button id="submit-answer">Submit Answer</button>
-    <button id="reset-game">Start Over</button>
-    <div id="check-answer"></div>
-    <output id="score"></output>
-    
-    
+    <h1 data-shadow='Math Game'>Math Game</h1>
+    <div class="start-screen">
+        <label id="player">Who is playing?</label>
+        <input id="player-name" type="text" placeholder="Enter Player Name">
+        <button id="start-game">Start Game</button>
+    </div>
+    <div class="game-board-off">
+        <label class="lbl-params">Configure &amp; Ask Your Question</label>
+        <div class="params">
+            <div class="param">
+                <label id="chose-range">Choose Number Range:</label>
+                <select id="select">
+                    <option value="1">1-10</option>
+                    <option value="2">1-100</option>
+                </select>
+            </div>
+            <div class="param">
+                <label id="select-oper">Choose Math Operation:</label>
+                <select id="select-op">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+            <div class="param">
+                <button id="btn-question">Ask Question</button>
+            </div>
+        </div>
+        <div id="question-panel" class="displayOff">
+            <div id="current-question" class="question"></div>
+            <input id="input-answer" placeholder="Enter Answer Here">
+            <button id="submit-answer">Submit Answer</button>
+            <button id="reset-game">Start Over</button>
+            <div id="check-answer" class="output"></div>
+            <output id="score"></output>
+        </div>    
+    </div>
     <script src="js.js"></script>
 </body>
 </html>
